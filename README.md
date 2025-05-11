@@ -26,6 +26,14 @@ A fun and visually engaging side-scrolling JavaScript game where you control a k
 
 ---
 
+## Technologies Used
+- HTML
+- CSS
+- JavaScript
+- Kaboom.js
+
+---
+
 ## 🧠 Game Logic
 
 1. **Opening Scene**: Plays an intro video with a “Play” button.
