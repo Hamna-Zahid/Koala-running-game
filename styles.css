@@ -1,0 +1,328 @@
+/* Style for the opening scene */
+#openingScene {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff; /* Fallback background color */
+  z-index: 10;
+}
+
+/* Opening video styling */
+#openingVideo {
+  width: 100%;
+  height: auto;
+  z-index: 1;
+}
+
+/* Game container */
+#gameContainer {
+  position: relative;
+  width: 800px;
+  height: 600px;
+  margin: 0 auto;
+  background-color: #f0f0f0; /* Add background color for better visibility */
+  display: none;
+}
+
+#gameCanvas {
+  border: 2px solid #000; /* Optional: adds border to the canvas */
+}
+
+#scoreboard {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 18px;
+  color: #fff;
+  z-index: 1;
+}
+
+#gameOverOverlay {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+  z-index: 2;
+}
+
+/* Play button styling */
+#playButton {
+  position: relative; /* Ensure it's relative to its parent */
+  top: -100px; /* Move the button slightly above the center of the video */
+  padding: 15px 40px;
+  font-size: 28px;
+  font-family: Arial, sans-serif;
+  color: #fff;
+  background-color: #4caf50;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.3s, transform 0.2s;
+  z-index: 2;
+  text-align: center;
+}
+
+#playButton:hover {
+  background-color: #45a049;
+  transform: scale(1.05);
+}
+
+#playButton:active {
+  transform: scale(0.95);
+}
+
+/* Hide the game initially */
+canvas {
+  display: none;
+}
+
+/* Canvas style */
+canvas {
+  display: block;
+  width: 100vw;
+  height: 100vh;
+  background-image: url('images/Background.jpg');
+  background-size: cover;
+  background-position: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+/* Game Over overlay styling */
+#gameOverOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent black background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 20;
+  opacity: 0; /* Initially hidden */
+  pointer-events: none;
+  transition: opacity 1s ease-in-out;
+}
+
+#gameOverOverlay.show {
+  opacity: 1;
+  pointer-events: all;
+}
+
+#gameOverText {
+  font-size: 64px;
+  font-family: Arial, sans-serif;
+  color: #ff0000;
+  text-shadow: 0 0 10px #ff0000, 0 0 20px #ff4500;
+  animation: pulse 1.5s infinite;
+}
+
+#finalScore {
+  font-size: 36px;
+  font-family: Arial, sans-serif;
+  color: white;
+  margin-top: 20px;
+}
+
+#retryButton {
+  padding: 15px 30px;
+  font-size: 24px;
+  font-family: Arial, sans-serif;
+  color: #fff;
+  background-color: #f44336;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-top: 30px;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+#retryButton:hover {
+  background-color: #d32f2f;
+  transform: scale(1.05);
+}
+
+#retryButton:active {
+  transform: scale(0.95);
+}
+
+/* Animation for pulsing Game Over text */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Style for the level 1 pop-up */
+/* Container to dim the background */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7); /* Dark overlay */
+  z-index: 999; /* Make sure it's behind the popup */
+  display: none;
+}
+
+/* The popup itself */
+.popup {
+  display: none; /* Hidden by default */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: linear-gradient(135deg, #3e8e41, #6b8e23); /* Forest green gradient */
+  padding: 40px 60px;
+  border-radius: 15px;
+  z-index: 1000;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4); /* Deep shadow for emphasis */
+  opacity: 0;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  animation: popupAnimation 1s ease-out forwards; /* Enhanced entrance animation */
+  text-align: center;
+  font-family: 'Arial', sans-serif;
+  color: #fff;
+}
+
+.popup.show {
+  display: block;
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1.1); /* Slight scaling effect */
+}
+
+/* Entrance animation */
+@keyframes popupAnimation {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -45%) scale(0.5); /* Start smaller and transparent */
+  }
+  50% {
+    opacity: 0.8;
+    transform: translate(-50%, -50%) scale(1.05); /* Scale slightly larger */
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1); /* End at full size */
+  }
+}
+
+/* Close button styling */
+.popup .close-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background-color: #8b5e3c; /* Brown background */
+  border: none;
+  color: white;
+  padding: 12px;
+  border-radius: 50%;
+  font-size: 22px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.popup .close-btn:hover {
+  background-color: #5a3d2d; /* Darker brown on hover */
+}
+
+/* Title styling */
+.popup h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  font-weight: bold;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Text shadow for emphasis */
+  animation: titleAnimation 1.5s ease-out forwards;
+  color: #fff;
+}
+
+/* Body text styling */
+.popup p {
+  font-size: 20px;
+  margin-bottom: 30px;
+  animation: textFadeIn 2s ease-out forwards;
+}
+
+/* Action button styling */
+.popup .action-btn {
+  padding: 15px 30px;
+  background-color: #6b8e23; /* Olive green background */
+  border: none;
+  color: white;
+  border-radius: 5px;
+  font-size: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.popup .action-btn:hover {
+  background-color: #3e8e41; /* Darker green on hover */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Title fade-in animation */
+@keyframes titleAnimation {
+  0% {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Text fade-in animation */
+@keyframes textFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+#level2Popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  z-index: 1000;
+  display: none;
+}
+
+#level2Popup.show {
+  display: block;
+}

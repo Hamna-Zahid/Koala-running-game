@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Koala Running Game</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Opening scene with video and Play button -->
+  <div id="openingScene">
+    <video id="openingVideo" autoplay muted loop>
+      <source src="images/opening_scene_v.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <button id="playButton">Play</button>
+  </div>
+
+  <!-- Popup for Level 1 -->
+  <div id="level1Popup" class="popup">
+    <div class="popupContent">
+      <p>Welcome to Level 1!</p>
+    </div>
+  </div>
+  <div id="level2Popup" class="popup">
+    <div class="popupContent">
+      <p>Welcome to Level 2!</p>
+    </div>
+  </div>
+  <!-- Game Canvas -->
+  <div id="gameCanvasContainer">
+    <canvas id="gameCanvas"></canvas>
+  </div>
+
+  <!-- Scoreboard -->
+  <div id="scoreboard">Score: 0</div>
+  
+  <!-- Game Over Overlay -->
+  <div id="gameOverOverlay">
+    <div id="gameOverText">Game Over!</div>
+    <div id="finalScore">Final Score: 0</div>
+    <button id="retryButton">Retry</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
